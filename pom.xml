@@ -32,13 +32,15 @@
   	<version>4.0.0</version>
   	<scope>compile</scope>
   </dependency>
-  <!-- Source: https://mvnrepository.com/artifact/at.favre.lib/bcrypt -->
-  <dependency>
-    <groupId>at.favre.lib</groupId>
-    <artifactId>bcrypt</artifactId>
-    <version>0.10.2</version>
+  <!-- Source: https://mvnrepository.com/artifact/org.mindrot/jBCrypt -->
+  
+  <!-- Source: https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+<dependency>
+    <groupId>org.mindrot</groupId>
+    <artifactId>jbcrypt</artifactId>
+    <version>0.4</version>
     <scope>compile</scope>
-  </dependency>
+</dependency>
   <!-- Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
   <dependency>
     <groupId>com.mysql</groupId>
