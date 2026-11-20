@@ -4,14 +4,10 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erro interno</title>
 </head>
 <body>
-    <h1>Ops! Ocorreu um problema.</h1>
-    <p>Não foi possível processar sua solicitação.</p>
-    <p>Tente novamente mais tarde.</p>
-    <a href="${pageContext.request.contextPath}/">
-        Voltar ao início
-    </a>
+
 </body>
 </html>
