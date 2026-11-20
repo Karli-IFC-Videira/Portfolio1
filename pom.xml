@@ -8,9 +8,9 @@
   <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<maven.compiler.release>23</maven.compiler.release>
- </properties>
+  </properties>
  
- <dependencies>
+  <dependencies>
  	<!-- Source: https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
 	<dependency>
 	    <groupId>jakarta.servlet.jsp.jstl</groupId>
@@ -50,9 +50,9 @@
 	    <version>0.4</version>
 	    <scope>compile</scope>
 	</dependency>
- </dependencies>
+  </dependencies>
  
- <build>
+  <build>
 	<finalName>Portfolio1</finalName>
 	<plugins>
 		<!-- Compilação Java 21 -->
@@ -72,6 +72,6 @@
 		<version>3.4.0</version>
 	</plugin>
 	</plugins>
-</build>
+ </build>
   
 </project>
