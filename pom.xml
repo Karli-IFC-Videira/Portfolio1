@@ -53,7 +53,7 @@
  </dependencies>
  
  <build>
-	<finalName>Portfolio</finalName>
+	<finalName>Portfolio1</finalName>
 	<plugins>
 		<!-- Compilação Java 21 -->
 	<plugin>
