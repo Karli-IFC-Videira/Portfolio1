@@ -15,7 +15,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg bg-success-subtle">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="index.jsp">
+                        <a class="navbar-brand" href="index">
                             <img src="assets/img/cursos.png" alt="Bootstrap" width="80" height="55">
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,13 +25,13 @@
                             <ul class="navbar-nav">
                                 <% if (session.getAttribute("usuarioLogado") == null) { %>
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/index">Inicio</a>
+                                        <a class="nav-link active" aria-current="page" href="index">Inicio</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="home">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/contatos">Contatos</a>
+                                        <a class="nav-link" href="contatos">Contatos</a>
                                     </li>
                                 <% } %>
                                 <li class="nav-item">
