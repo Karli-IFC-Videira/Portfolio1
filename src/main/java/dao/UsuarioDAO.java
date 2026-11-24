@@ -3,6 +3,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import model.Usuario;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -17,7 +19,9 @@ public class UsuarioDAO {
             statement.setString(2, usuario.getEmail().trim().toLowerCase());
             statement.setString(3, BCrypt.hashpw(usuario.getSenha(), BCrypt.gensalt()));
             statement.executeUpdate();
-        }
+        } catch (SQLException e) {
+	        throw new Exception("Erro ao cadastrar o usuário: " + e.getMessage(), e);
+	    }
     }
 
     public Usuario autenticar(String email, String senha) throws Exception {
@@ -25,7 +29,7 @@ public class UsuarioDAO {
 
         try (Connection connection = ConexaoDB.getConexao();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, email.trim().toLowerCase());
+             statement.setString(1, email.trim().toLowerCase());
 
             try (ResultSet result = statement.executeQuery()) {
                 if (result.next() && BCrypt.checkpw(senha, result.getString("senha"))) {
@@ -35,8 +39,12 @@ public class UsuarioDAO {
                             result.getString("email")
                     );
                 }
-            }
-        }
+            } catch (SQLException e) {
+    	        throw new Exception("Erro na autenticação: " + e.getMessage(), e);
+    	    }
+        } catch (SQLException e) {
+	        throw new Exception("Erro no login: " + e.getMessage(), e);
+	    }
 
         return null;
     }

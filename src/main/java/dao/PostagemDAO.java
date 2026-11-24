@@ -3,19 +3,26 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import model.Postagem;
 
 public class PostagemDAO {
 
-    private static final String COLUNAS =
-            "SELECT p.id, p.titulo, p.conteudo, p.imagem, p.autor_id, "
-            + "p.data_publicacao, p.status, u.nome AS autor_nome "
-            + "FROM postagem p INNER JOIN usuario u ON u.id = p.autor_id ";
+    private static final String COLUNAS = """
+    										SELECT p.id, p.titulo, p.conteudo, p.imagem, p.autor_id,
+            								p.data_publicacao, p.status, u.nome AS autor_nome 
+            								FROM postagem p INNER JOIN usuario u ON u.id = p.autor_id 
+            							  """;
 
     public void cadastrar(Postagem postagem) throws Exception {
-        String sql = "INSERT INTO postagem " + "(titulo, conteudo, imagem, autor_id, status) VALUES (?, ?, ?, ?, ?)";
+        String sql = """
+        				INSERT INTO 
+        				postagem (titulo, conteudo, imagem, autor_id, status) 
+        				VALUES (?, ?, ?, ?, ?)
+        			 """;
 
         try (Connection connection = ConexaoDB.getConexao();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -25,6 +32,8 @@ public class PostagemDAO {
             statement.setInt(4, postagem.getAutorId());
             statement.setString(5, "PUBLICADA");
             statement.executeUpdate();
+        } catch(SQLException e) {
+        	throw new SQLException("Erro ao cadastrar a postagem!");
         }
     }
 
@@ -41,6 +50,8 @@ public class PostagemDAO {
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, autorId);
             preencherLista(statement, postagens);
+        }catch(SQLException e) {
+        	throw new SQLException("Erro ao listar os registros!");
         }
 
         return postagens;
@@ -58,15 +69,22 @@ public class PostagemDAO {
                 if (result.next()) {
                     return criarPostagem(result);
                 }
+            }catch(SQLException e) {
+            	throw new SQLException("Erro ao buscar os registros!");
             }
+        }catch(SQLException e) {
+        	throw new SQLException("Erro ao exibir os registros!");
         }
 
         return null;
     }
 
     public boolean atualizar(Postagem postagem) throws Exception {
-        String sql = "UPDATE postagem SET titulo = ?, conteudo = ?, imagem = ? "
-                + "WHERE id = ? AND autor_id = ?";
+    	
+        String sql = """
+        				UPDATE postagem SET titulo = ?, conteudo = ?, imagem = ?
+                		WHERE id = ? AND autor_id = ?
+                	 """;
 
         try (Connection connection = ConexaoDB.getConexao();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -76,6 +94,8 @@ public class PostagemDAO {
             statement.setInt(4, postagem.getId());
             statement.setInt(5, postagem.getAutorId());
             return statement.executeUpdate() > 0;
+        } catch(SQLException e) {
+        	throw new SQLException("Erro ao atualizar o registro!");
         }
     }
 
@@ -87,6 +107,8 @@ public class PostagemDAO {
             statement.setInt(1, id);
             statement.setInt(2, autorId);
             return statement.executeUpdate() > 0;
+        }catch(SQLException e) {
+        	throw new SQLException("Erro ao excluir o registro!");
         }
     }
 
@@ -96,17 +118,20 @@ public class PostagemDAO {
         try (Connection connection = ConexaoDB.getConexao();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             preencherLista(statement, postagens);
+        } catch(SQLException e) {
+        	throw new SQLException("Erro ao consultar os registros!");
         }
 
         return postagens;
     }
 
-    private void preencherLista(PreparedStatement statement, List<Postagem> postagens)
-            throws Exception {
+    private void preencherLista(PreparedStatement statement, List<Postagem> postagens) throws Exception {
         try (ResultSet result = statement.executeQuery()) {
             while (result.next()) {
                 postagens.add(criarPostagem(result));
             }
+        } catch(SQLException e) {
+        	throw new SQLException("Erro ao mostrar os registros!");
         }
     }
 

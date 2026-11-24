@@ -19,8 +19,7 @@ public class ImagemController extends HttpServlet {
             .toAbsolutePath().normalize();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String caminho = request.getPathInfo();
         if (caminho == null || caminho.length() <= 1) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -28,7 +27,9 @@ public class ImagemController extends HttpServlet {
         }
 
         String nomeArquivo = Paths.get(caminho).getFileName().toString();
+        
         Path arquivo = DIRETORIO_UPLOAD.resolve(nomeArquivo).normalize();
+        
         if (!arquivo.startsWith(DIRETORIO_UPLOAD) || !Files.isRegularFile(arquivo)) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;

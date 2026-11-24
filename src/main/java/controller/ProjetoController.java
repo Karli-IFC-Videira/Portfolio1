@@ -19,7 +19,7 @@ import model.Usuario;
  * Controller responsável pelo gerenciamento das requisições
  * relacionadas aos projetos do portfólio.
  *
- * @author Jesus Munoz
+ * @author Seu nome
  */
 @WebServlet(name = "ProjetoController",urlPatterns = {"/ProjetoController", "/cadastroProjeto", "/listaProjeto", "/editarProjeto", "/selecaoProjeto", "/excluirProjeto"})
 public class ProjetoController extends HttpServlet {

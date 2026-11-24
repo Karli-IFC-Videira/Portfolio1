@@ -2,23 +2,22 @@
     <div class="container">
         <h1 id="titulo">Seja muito bem-vindo neste site!</h1>
         <p id="intro">
-            Aqui você adiciona umaresenha que sirva de apresentação para seu aplicativo web.
+            Aqui você adiciona uma resenha que sirva de apresentação para seu aplicativo web.
             <a href="contatos" target="_blank">clique aqui.</a>
         </p> 
         <h2>
             Informações que você poderá encontrar neste site
         </h2>
         <p>   
-           <strong>História do Karli:</strong> Com o propósito de facilitar o acesso à maravilhosa história desse cara super bacana,
-           informações sobre ele e outras coisas mais, leia essa seção.
+           <strong>Adicione uma história fictícia sobre o site:</strong> Com o propósito de facilitar o acesso da história do site.
+           Adicione informações sobre você e outras coisas que façam às pessoas querer ler essa seção.
         </p>
         <p>
-            <strong>Curiosidades:</strong> Para facilitar informações sobre as curiosidades do cara e outras informações 
-            relevantes para a comunidade estudantil.
+            <strong>Curiosidades:</strong> Para facilitar informações sobre suas curiosidades e outras informações 
+            relevantes.
         </p>
         <p>
-            <strong>Outras informações:</strong> Outras informações de interesse geral, poderão ser disponibilizada através deste site.
-            Fique atento às publicações peiodicas deste site para ficar por dentro das informações mais relevantes nesta comunidade.
+            <strong>Outras informações:</strong> Outras informações de interesse geral, poderão ser disponibilizada através desta seção.
         </p>
         <p>
             Fique atento às publicações peiodicas deste site para ficar por dentro das informações mais relevantes nesta comunidade.

@@ -12,10 +12,10 @@ public class CadastroProjetos {
 	public boolean CadastrarProjeto(Projeto projeto) throws Exception {
 
 	    String sql = """
-	        INSERT INTO project
-	        (titulo, descricao, link, tecnologias, data_criacao)
-	        VALUES (?, ?, ?, ?, ?)
-	        """;
+	    		  		INSERT INTO project
+	    		  		(titulo, descricao, link, tecnologias, data_criacao)
+	    		  		VALUES (?, ?, ?, ?, ?)
+	    			""";
 
 	    try (
 	        Connection connect = ConexaoDB.getConexao();
@@ -33,11 +33,7 @@ public class CadastroProjetos {
 	        return registroCadastrado > 0;
 
 	    } catch (SQLException e) {
-
-	        throw new Exception(
-	            "Erro ao cadastrar o Registro: " + e.getMessage(),
-	            e
-	        );
+	        throw new Exception("Erro ao cadastrar o Registro: " + e.getMessage(), e);
 	    }
 	}
   
@@ -66,11 +62,7 @@ public class CadastroProjetos {
 	        }
 
 	    } catch (SQLException e) {
-
-	        throw new Exception(
-	            "Erro ao selecionar o Registro: " + e.getMessage(),
-	            e
-	        );
+	        throw new Exception("Erro ao selecionar o Registro: " + e.getMessage(), e);
 	    }
 	}
     
@@ -101,11 +93,7 @@ public class CadastroProjetos {
 	        }
 
 	    } catch (SQLException e) {
-
-	        throw new Exception(
-	            "Erro ao buscar o Registro: " + e.getMessage(),
-	            e
-	        );
+	    	throw new Exception("Erro ao buscar o Registro: " + e.getMessage(), e);
 	    }
 
 	    return listaProjeto;
@@ -140,10 +128,7 @@ public class CadastroProjetos {
 	        return registroAtualizado > 0;
 
 	    } catch (SQLException e) {
-
-	        throw new Exception(
-	            "Erro ao alterar o Registro: " + e.getMessage(), e
-	        );
+	        throw new Exception("Erro ao alterar o Registro: " + e.getMessage(), e);
 	    }
 	}
      
@@ -163,11 +148,7 @@ public class CadastroProjetos {
 	        return rowsAffected > 0;
 
 	    } catch (SQLException e) {
-
-	        throw new Exception(
-	            "Erro ao excluir o Registro: " + e.getMessage(),
-	            e
-	        );
+	        throw new Exception("Erro ao excluir o Registro: " + e.getMessage(), e);
 	    }
 	}
-} 
+}

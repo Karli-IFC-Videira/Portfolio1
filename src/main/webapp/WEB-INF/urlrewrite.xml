@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite
+    PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+    "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+    <rule>
+        <from>^/index$</from>
+        <to>/index.jsp</to>
+    </rule>
+
+    <rule>
+        <from>^/home$</from>
+        <to>/home.jsp</to>
+    </rule>
+
+    <rule>
+        <from>^/contatos$</from>
+        <to>/contatos.jsp</to>
+    </rule>
+</urlrewrite>
